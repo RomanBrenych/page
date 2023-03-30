@@ -1,0 +1,247 @@
+/* font-family: 'Poppins', sans-serif; */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+img {
+    max-width: 100%;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    overflow: clip;
+    min-height: 100%;
+}
+
+[class*="__container"] {
+    max-width: 1270px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0 auto;
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgb(255, 255, 255, 0.2);
+    z-index: 50;
+}
+
+.header__container {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    min-height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.header__logo {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.3;
+    color: #495057;
+    position: relative;
+    z-index: 2;
+    /* flex: 1 1 auto; */
+}
+
+.header__logo::after {
+    content: '.';
+    color: #DDBEA9;
+}
+
+.header__navigation {
+    display: flex;
+    align-items: center;
+    column-gap: 301px;
+}
+
+.menu__list {
+    display: flex;
+    column-gap: 25px;
+    flex-wrap: wrap;
+}
+
+.menu__item {}
+
+.menu__link.active {
+    color: #495057;
+}
+
+.menu__link.active::before {
+    width: 100%;
+    left: 0;
+}
+
+.menu__link {
+    line-height: 2.0;
+    color: rgba(73, 80, 87, 0.5);
+    display: inline-block;
+    position: relative;
+}
+
+.menu__link::before {
+    position: absolute;
+    content: '';
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #DDBEA9;
+    transition: width 0.3s, left 0.3s;
+}
+
+@media (any-hover: hover) {
+    .menu__item:hover .menu__link {
+        color: #495057;
+    }
+
+    .menu__item:hover .menu__link::before {
+        left: 0;
+        width: 100%;
+    }
+}
+
+.header__wrap-social {
+    display: flex;
+    gap: 20px;
+    margin-right: 15px;
+}
+
+.header__social-list {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.header__social-list::after {
+    content: '';
+    flex: 0 0 1px;
+    height: 25px;
+    background-color: #E5E5E5;
+}
+
+.header__search {
+    background: url(../img/search.svg) center no-repeat;
+    flex: 0 0 12px;
+}
+
+.menu-icon {
+    display: none;
+}
+
+@media (max-width: 768.98px) {
+    .header__container {
+        min-height: 60px;
+        /* background: #212529; */
+    }
+
+    .header__logo {
+        flex: 1 1 auto;
+    }
+
+    .menu-icon {
+        display: block;
+        flex: 0 0 30px;
+        position: relative;
+        height: 18px;
+    }
+
+    .menu-icon::before,
+    .menu-icon::after,
+    .menu-icon span {
+        content: '';
+        position: absolute;
+        width: 100%;
+        left: 0;
+        height: 1px;
+        background: #212529;
+        transition: all 0.3s;
+        /*background: white;*/
+    }
+
+    .menu-icon::before {
+        top: 0;
+    }
+
+    .menu-icon::after {
+        bottom: 0;
+    }
+
+    .menu-icon span {
+        top: 50%;
+        margin-top: -0.5px;
+    }
+
+
+    .menu-open .menu-icon::before {
+        top: 50%;
+        transform: translateY(-50%) rotate(-45deg);
+        background: #fff;
+    }
+
+    .menu-open .menu-icon::after {
+        bottom: 50%;
+        transform: translateY(50%) rotate(45deg);
+        background: #fff;
+    }
+
+    .menu-open .menu-icon span {
+        width: 0;
+        left: 50%;
+    }
+
+    .menu-open .header__button-sign {
+        color: #F8F9FA;
+    }
+
+    .menu__body {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: -100%;
+        background-color: #212529;
+        padding: 70px 15px 20px 15px;
+        overflow: auto;
+        transition: left 0.3s;
+    }
+
+    .menu__body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 60px;
+        background: #0a0b0c;
+        z-index: 5;
+        transition: left 0.3s;
+    }
+
+    .menu-open .menu__body,
+    .menu-open .menu__body::before {
+        left: 0;
+    }
+
+    .menu__list {
+        flex-direction: column;
+        row-gap: 20px;
+    }
+
+    .menu__link {
+        font-size: 20px;
+    }
+
+    .menu__link {
+        color: #fff;
+    }
+}
